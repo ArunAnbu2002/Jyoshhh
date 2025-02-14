@@ -32,7 +32,7 @@
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 20px;
+      margin: 10px; /* Added spacing between buttons */
     }
     button:hover {
       background-color: #ff6699;
@@ -41,9 +41,9 @@
 </head>
 <body>
   <div class="container" id="question-container">
-    <h2 id="question">Hi Jyosita..Will you be my Valentine?Sorry for mocking you today</h2>
-    <button onclick="handleResponse('yes')">Yes</button>
-    <button onclick="handleResponse('no')">No</button>
+    <h2 id="question">Hi Jyosita.. Will you be my Valentine? Sorry for mocking you today 💕</h2>
+    <button id="yes-btn" onclick="handleResponse('yes')">Yes</button>
+    <button id="no-btn" onclick="handleResponse('no')">No</button>
   </div>
 
   <script>
@@ -51,43 +51,38 @@
 
     function handleResponse(answer) {
       const questionElement = document.getElementById('question');
-      
+      const yesBtn = document.getElementById('yes-btn');
+      const noBtn = document.getElementById('no-btn');
+
       if (step === 1) {
         if (answer === 'yes') {
           questionElement.innerHTML = "OOMMMGGGGG! Thank you, I Love you! 💕";
           endConversation();
         } else {
-          questionElement.innerHTML = "Are you sure.Nejama??Let me ask again. You like to be my Valentine?";
+          questionElement.innerHTML = "Are you sure? Nejama?? Let me ask again. You like to be my Valentine? 🥺";
           step = 2;
-          updateButtons();
         }
       } else if (step === 2) {
         if (answer === 'yes') {
           questionElement.innerHTML = "Aww, you're the best! 💖";
           endConversation();
         } else {
-          questionElement.innerHTML = "Think Jyosh. You have to be my Valentine?";
+          questionElement.innerHTML = "Think Jyos. You have to be my Valentine? 💕";
           step = 3;
-          updateButtons();
         }
       } else if (step === 3) {
         if (answer === 'yes') {
-          questionElement.innerHTML = "I knew it! ❤️ Yay You're my Valentine now!";
+          questionElement.innerHTML = "I knew it! ❤️ Yay, you're my Valentine now!";
         } else {
-          questionElement.innerHTML = "Ayo pavam. You cant escape. You are my valentine 💖";
+          questionElement.innerHTML = "Ayo pavam 😢. You can't escape. You are my Valentine! 💖";
         }
         endConversation();
-      } nan dha rose i will order tmrw
-    }
-
-    function updateButtons() {
-      const buttons = document.querySelectorAll('button');
-      buttons.forEach(button => button.style.display = 'inline-block');  // Show buttons again after switching questions
+      }
     }
 
     function endConversation() {
-      const buttons = document.querySelectorAll('button');
-      buttons.forEach(button => button.style.display = 'none');  // Hide buttons after final answer
+      document.getElementById('yes-btn').style.display = 'none';
+      document.getElementById('no-btn').style.display = 'none';
     }
   </script>
 </body>
